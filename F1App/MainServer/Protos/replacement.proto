@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+option csharp_namespace = "MainServer";
+
+package replacement;
+
+service Replacement {
+  rpc CreateReplacement (CreateReplacementRequest) returns (CreateReplacementReply);
+  rpc UpdateReplacement (UpdateReplacementRequest) returns (UpdateReplacementReply);
+  rpc DeleteReplacement (DeleteReplacementRequest) returns (DeleteReplacementReply);
+  rpc DeleteReplacementPhoto (DeleteReplacementPhotoRequest) returns (DeleteReplacementPhotoReply);
+}
+
+message CreateReplacementRequest {
+  string name = 1;
+  string provider = 2;
+  string brand = 3;
+}
+
+message CreateReplacementReply {
+  bool ok = 1;
+  string message = 2;
+}
+
+message UpdateReplacementRequest {
+  int32 id = 1;
+  string name = 2;
+  string provider = 3;
+  string brand = 4;
+}
+
+message UpdateReplacementReply {
+  bool ok = 1;
+  string message = 2;
+}
+
+message DeleteReplacementRequest {
+  int32 id = 1;
+}
+
+message DeleteReplacementReply {
+  bool ok = 1;
+  string message = 2;
+}
+
+message DeleteReplacementPhotoRequest {
+  int32 id = 1;
+}
+
+message DeleteReplacementPhotoReply {
+  bool ok = 1;
+  string message = 2;
+}
